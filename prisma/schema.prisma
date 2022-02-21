@@ -6,3 +6,23 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+// An enumeration over the supported interfaces.
+enum Interface {
+  Telegram
+}
+
+// The source of a message.
+enum Source {
+  User
+  Brain
+}
+
+// A message sent/received by the user.
+model Message {
+  id        String    @id @default(cuid())
+  timestamp DateTime  @default(now())
+  interface Interface
+  source    Source
+  text      String
+}
