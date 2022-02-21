@@ -18,14 +18,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  let message: TelegramMessage;
-  try {
-    message = JSON.parse(req.body);
-  } catch (e) {
-    console.error(e);
-    res.status(400).end();
-    return;
-  }
+  let message = req.body as TelegramMessage;
   let response = message.message.text;
   if (message.message.from.username != process.env.TELEGRAM_USERNAME) {
     response = "You are not authorized to use this bot.";
