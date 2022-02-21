@@ -24,5 +24,5 @@ model Message {
   timestamp DateTime  @default(now())
   interface Interface
   source    Source
-  text      String
+  text      String    @db.MediumText // ~32 MB
 }

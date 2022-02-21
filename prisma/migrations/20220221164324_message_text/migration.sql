@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Message` MODIFY `text` MEDIUMTEXT NOT NULL;
