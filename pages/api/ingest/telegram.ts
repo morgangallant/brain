@@ -41,5 +41,5 @@ export default async function handler(
       text: response,
     }),
   });
-  res.status(200);
+  res.status(200).end();
 }
